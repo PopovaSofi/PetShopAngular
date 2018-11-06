@@ -1,0 +1,18 @@
+.new{
+    display: inline-block;
+    margin: 12px;
+}
+
+input, select{
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+}
+
+button {
+    border: 1px solid #ebebeb;
+    margin: 20px;
+    padding: 30px;
+    border-radius: 15px;
+    background: #FFFACD;
+    box-shadow: none;
+}

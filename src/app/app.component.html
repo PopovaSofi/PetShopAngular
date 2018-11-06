@@ -1,0 +1,48 @@
+<button (click)="showLists('Cats')">Show all cats</button>
+<button (click)="showLists('ExpensivePets')">Show all expensive pets</button>
+<button (click)="showLists('FluffyOrWhite')">Show all fluffy and white pets</button>
+<button (click)="showLists('AllPets')">List of all pets</button> 
+
+<div>
+    <pet-list [title]="listTitle" [pets]="selectedPets"> </pet-list>
+</div>
+       
+<div  class="new">
+    <select [(ngModel)]="animals" required (change)="listChanged($event.target.value)">
+        <option  *ngFor="let type of types" [value]="type">
+            {{type}}
+        </option>
+    </select>
+</div>
+
+<div class="new">
+    <div [hidden]="currentPet === 'Hamster'" >
+        <input type="string" 
+        [(ngModel)]="name" 
+        placeholder="Name" 
+        name="petName" #petname="ngModel" required/>
+    </div>
+</div>
+
+<div  class="new">
+    <input type="number" 
+    [(ngModel)]="price" 
+    placeholder="Price"
+    name="petPrice" #petPrice="ngModel" required pattern="^[1-9]\d*$" />
+</div>
+
+<div  class="new">
+    <input [(ngModel)]="color" 
+    placeholder="Color" 
+    name="petColor" #petColor="ngModel" required/>
+</div>
+
+<div class="new">
+    <div [hidden]="currentPet === 'Dog'">
+        <input
+        type="checkbox"
+        [(ngModel)]="isflufy"/> Fluffy
+    </div>
+</div>
+
+<button  (click)="addPet(color, price, name, isflufy)">Add</button>
